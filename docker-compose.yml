@@ -16,7 +16,7 @@ services:
       - KES_SCAN_LOG_LEVEL=${KSLL:=3} # Web server log file level	
       - KES_SCAN_CONSOLE_LEVEL=${KSCL:=4} # Media scanner console output level 
       - KES_CONSOLE_LEVEL=${KCL:=4} # Web server console output level	
-      - KES_SCAN=${KS:=true} # Run the media scanner at startup	
+      - KES_SCAN=${KS:=false} # Run the media scanner at startup, it is false by default unless changed in .env file
     mem_limit: 1024M # optional memory limit threshold
     cpus: 3.0 # optional cpu limit threshold
     init: true 
