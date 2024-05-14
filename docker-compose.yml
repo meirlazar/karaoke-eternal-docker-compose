@@ -5,8 +5,8 @@ services:
     volumes:
       - ${DBDIR:=./DB_config}:/config
       - ${KARAOKE_MEDIA}:/mnt/karaoke
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro # optional - sets localtime
+      - /etc/timezone:/etc/timezone:ro   # optional - sets TZ
     env_file:
       - .env # environment file
     ports:
@@ -20,7 +20,7 @@ services:
     mem_limit: 1024M # optional memory limit threshold
     cpus: 3.0 # optional cpu limit threshold
     init: true 
-    healthcheck:
+    healthcheck: 
       test: wget --timeout=5 -nv -t1 --spider "http://localhost:8080" || exit 1
       interval: 10m
       timeout: 10s
